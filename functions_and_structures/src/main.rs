@@ -29,7 +29,7 @@ fn main() {
     }
     number_checker(55);
 
-    //while
+    //loop
     fn ping_n_times(n: usize) {
         let mut counter = 0;
 
@@ -43,17 +43,33 @@ fn main() {
         };
     println!("We pinged {} times", result);
     }  
-
     ping_n_times(10);
 
+    //while
     fn ping_n_times2(n: usize){
         let mut counter = 0;
 
         while counter < n {
-            println!("Ping attempt: {}", counter);
+            println!("Ping attempt with while: {}", counter);
 
             counter += 1;
         }
     }
     ping_n_times2(4);
+
+    //for
+    fn ping_n_times3(n: usize) {
+        for i in 0..n {
+            println!("Ping attempt: {}", i);
+        }
+    }
+    ping_n_times3(4);
+
+    //scruct
+    struct User {
+        username: String;
+        email: String,
+        age: u64,
+        active: bool,
+    }
 }
