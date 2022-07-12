@@ -67,9 +67,24 @@ fn main() {
 
     //scruct
     struct User {
-        username: String;
+        username: String,
         email: String,
         age: u64,
         active: bool,
     }
+
+    let mut user1 = User{
+        email: String::from("user1@mail.com"),
+        username: String::from("ping_machine"),
+        active: true,
+        age: 42,
+    };
+    user1.age = 20;
+
+    let user2 = User{
+        email: String::from("another@mail.com"),
+        username: String::from("another_user"),
+        ..user1
+    };
+
 }
