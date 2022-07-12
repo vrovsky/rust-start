@@ -87,4 +87,11 @@ fn main() {
         ..user1
     };
 
+    //Tuple structs
+    struct Color(i32, i32, i32);
+
+    let color: Color = Color(255, 128, 128);
+    let r = color.0;
+    let g = color.1;
+    let b = color.2;
 }
