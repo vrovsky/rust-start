@@ -94,4 +94,34 @@ fn main() {
     let r = color.0;
     let g = color.1;
     let b = color.2;
+
+    //implemetatio0n of ctructure
+    struct PingMachine{
+        times_to_ping: usize,
+    }
+
+    impl PingMachine {
+        fn get_num_times_to_ping(&self) -> usize {
+            self.times_to_ping
+        }
+
+        fn ping(&mut self) {
+            if self.times_to_ping > 0 {
+                println!("ping");
+                self.times_to_ping -= 1;
+            } else {
+                println!("No more pings!");
+            }
+        }
+    }
+
+    let mut ping_machine = PingMachine {
+        times_to_ping: 3,
+    };
+    
+    ping_machine.ping();
+    ping_machine.ping();
+    ping_machine.ping();
+    ping_machine.ping();
+
 }
