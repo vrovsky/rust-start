@@ -15,5 +15,45 @@ fn main() {
     fn sum_values2(a: u32, b: u32) -> u32 {
         a + b
     }
+    //function without return keyword
     println!("Result of sum_values2 function: {}", sum_values2(15, 23));
+
+    fn number_checker(number: u32){
+        if number > 0 {
+            println!("The number {} is greater than zero", number);
+        } else if number < 0 {
+            println!("The number {} is less than zero", number);
+        } else {
+            println!("The number {} is equal to zero", number);
+        }            
+    }
+    number_checker(55);
+
+    //while
+    fn ping_n_times(n: usize) {
+        let mut counter = 0;
+
+        let result = loop {
+            counter += 1;
+            println!("ping");
+    
+            if counter == n {
+                break counter;
+            }
+        };
+    println!("We pinged {} times", result);
+    }  
+
+    ping_n_times(10);
+
+    fn ping_n_times2(n: usize){
+        let mut counter = 0;
+
+        while counter < n {
+            println!("Ping attempt: {}", counter);
+
+            counter += 1;
+        }
+    }
+    ping_n_times2(4);
 }
