@@ -21,4 +21,14 @@ fn main() {
     fn print_string2(c: &String){
         println!("Recieved string: {}", c);
     }
+    
+    //if you want to change variable use &mut with type (&mut String)
+    let string3 = String::from("Rust lesson");
+    println!("Print string3 in main - 1st attemp: {}", string3);
+    print_string3(&string3);  //Borrowing here too
+    println!("Print string3 in main - 2st attemp: {}", string3);
+
+    fn print_string3(d: &mut String){ //This is not working by memory defence
+        println!("Recieved string: {}", d);
+    }
 }
