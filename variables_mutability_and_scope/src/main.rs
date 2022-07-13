@@ -52,7 +52,7 @@ fn main() {
         };
         println!("{:?}", y);
     }
-
+    // with if statment
     fn main3(){
         let x = Some(10);
         if let Some(y) = x {
@@ -61,6 +61,7 @@ fn main() {
             println!("No result");
         }
     }
+    //with match
     fn main3_with_match(){
         let x = Some(10);
         match x {
@@ -68,4 +69,8 @@ fn main() {
             _ => println!("No results"), 
         }
     }
+
+    //МНОГОПОТОЧНОСТЬ
+    //Rc(Read counter), Arc(Asynchronic read counter), Mutex, Cow
+
 }
