@@ -31,4 +31,41 @@ fn main() {
     println!("{}", variable2);
 
     //Область видимости констант
+    pub const global_const: u64 = 10; // Видимость вообще до другого модуля может дойти
+
+    //ENUM
+    pub enum Calc{
+        Add,             //атомарный
+        Minus(u64, f64), //тюпл
+        Mul {            //структура
+            x: u64,
+            y: f64,
+        },
+    }
+
+    //ENUM реализует ADT(Abstract data type)
+    fn main2() {
+        let x: Calc = Calc::Minus(10, 2.3);
+        let y = match x {
+            Calc::Minus(x, y) => y - x as f64,
+            _ => 0.0,
+        };
+        println!("{:?}", y);
+    }
+
+    fn main3(){
+        let x = Some(10);
+        if let Some(y) = x {
+            println!("{:?}", y);
+        } else {
+            println!("No result");
+        }
+    }
+    fn main3_with_match(){
+        let x = Some(10);
+        match x {
+            Some(y) => println!("{:?}", y),
+            _ => println!("No results"), 
+        }
+    }
 }
