@@ -49,4 +49,19 @@ fn main() {
         println!("{}", key);
     }
     println!("{:?}", hashset_start);
+
+    //B-TreeMap - данные хранятся в куче, способ хранения B-Tree map
+    use std::collections::BTreeMap;
+    let mut btree_var: BTreeMap<&str, u64> = BTreeMap::new();
+    btree_var.insert("key1", 10);
+    btree_var.insert("key2", 20);
+    // insert a kay only if it doesn't already exist
+    btree_var.entry("key1").or_insert(100);
+    for (key, val) in btree_var.iter(){
+        println!("{:?} => {:?}", key, val);
+    }
+    if btree_var.contains_key("key1"){
+        //..
+    }
+    println!("{:?}", btree_var);
 }
