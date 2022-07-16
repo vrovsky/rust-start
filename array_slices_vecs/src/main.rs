@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 fn main() {
     //Array - харнятся в стэке, размер известен во время компиляции, все данные одного типа
     let x: [u8; 3] = [1, 3, 5]; //[1, 3, 5]
@@ -17,4 +18,23 @@ fn main() {
     println!("{:?}", &x1[2..4]); 
     println!("{:?}", &x1[2..]); 
     println!("{:?}", &x1[..]); 
+
+    //Collections: Vec- данные храняться в куче. Данные храняться последовательно друг за другом
+    let mut some_collection: Vec<u8> = Vec::new();
+    some_collection.push(1); //В отличие от массива, можем добавлять неограниченое количество элементов
+    some_collection.push(3);
+    some_collection.push(7);
+    println!("{:?}", some_collection);
+    for i in some_collection.iter(){
+        println!("{}",i);
+    }
+
+    //Hashmap
+    let mut hash_start: HashMap<&str, u64> = HashMap::new();
+    hash_start.insert("key1", 10);
+    hash_start.insert("key2", 20);
+    println!("{:?}", x); //{"key1": 10, "key2": 20}
+    for (key, val) in hash_start.iter(){
+        println!("\"{}\" = {}", key, val);
+    }
 }
