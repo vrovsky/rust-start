@@ -1,4 +1,6 @@
 use std::collections::HashMap;
+use std::collections::HashSet;
+
 fn main() {
     //Array - харнятся в стэке, размер известен во время компиляции, все данные одного типа
     let x: [u8; 3] = [1, 3, 5]; //[1, 3, 5]
@@ -29,7 +31,7 @@ fn main() {
         println!("{}",i);
     }
 
-    //Hashmap
+    //Hashmap - коллекция из стандартной библиотеки, способ хранения данных: ключ-значение, для защиты от HashDos атак
     let mut hash_start: HashMap<&str, u64> = HashMap::new();
     hash_start.insert("key1", 10);
     hash_start.insert("key2", 20);
@@ -37,4 +39,14 @@ fn main() {
     for (key, val) in hash_start.iter(){
         println!("\"{}\" = {}", key, val);
     }
+
+    //HashSet - данные хранятся в куче, способ хранения данных: набор ключей, HashSet - это HashMap где значение = ()  (tuple)
+    // () - пустой tuple, используется в расте в функциях, которые ничего не возвращают, вместо null и подыбным в других яхыках
+    let mut hashset_start: HashSet<&str> = HashSet::new();
+    hashset_start.insert("key1");
+    hashset_start.insert("key2");
+    for key in hashset_start.iter(){
+        println!("{}", key);
+    }
+    println!("{:?}", hashset_start);
 }
