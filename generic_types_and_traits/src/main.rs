@@ -28,16 +28,16 @@ fn main() {
     }
 
     //Bigger implementation
-    // pub struct Shape2<T> {
-    //     pub x2: T,
-    //     pub y2: T,
-    // }
+    pub struct Shape2<T> {
+        pub x2: T,
+        pub y2: T,
+    }
 
-    // impl<T: Copy + Add<Output = T>> Shape2<T> { //Применение нескольких трэйтов идет через +
-    //     pub fn sum(&self) -> T {
-    //         self.x2 + self.y2
-    //     }
-    // }
+    impl<T: Copy + Add<Output = T>> Shape2<T> { //Применение нескольких трэйтов идет через +
+        pub fn sum(&self) -> T {
+            self.x2 + self.y2
+        }
+    }
     pub struct Shape3<T, U>{
         pub x3: T,
         pub y3: T,
@@ -77,4 +77,10 @@ fn main() {
     fn sum<T: Copy + Add<Output = T>>(figure: Shape5<T>) -> T {
         figure.x5 + figure.y5 
     }
+
+    //Пример вызова
+    let f: Shape5<i32> = Shape5 {x5: 10, y5: -20};
+    let res = sum::<i32>(f);
+    // println!("{:?}", f.sum());
+    println!("{:?}", res);
 }
