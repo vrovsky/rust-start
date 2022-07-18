@@ -83,4 +83,39 @@ fn main() {
     let res = sum::<i32>(f);
     // println!("{:?}", f.sum());
     println!("{:?}", res);
+
+    //Traits - абстрактное описание функции, применимым к другим типам(в том числе Generic Types)
+    //Аналаги интерфейсов в других языках програмирования
+    pub trait Calc{
+        fn new() -> Self;
+        fn add(&self, x: i32) -> i32;
+        fn add2(&self, x: i32, y: i32) -> i32;
+        fn change(&mut self, x: i32);
+        fn sub_1(&self, x: i32) -> i32 {
+            x - 1
+        }
+    }
+
+    pub trait ShapeCalc<T> {
+        fn sum(&self) -> T;
+    }
+
+    impl<T: Copy + Add<Output = T>> ShapeCalc<T> for Shape1<T>
+    {
+        fn sum(&self) -> T{
+            self.x1 + self.y1
+        }
+    }
+
+    impl<T: ShapeCalc<T>> Shape1<T>
+    where
+        T: Copy + Add<Output = T> + Sub<Output = T>,
+    {
+        pub fn calc(&self, z3: T) -> T{
+            z3.sum() - self.x
+        }
+        pub fn sub(&self, z: &impl ShapeCalc<T>) -> T { //тут отдельно прописываем generic type
+            z3.sum() - self.x
+        }
+    }
 }
