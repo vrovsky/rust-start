@@ -50,5 +50,22 @@ fn main() {
     let t = MyType { x: f3, y: 32};//f3 - функция
     println!("result: {:?}", (t.x)(t.y));
 
-    
+    //Итераторы
+    let x = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let y = x.iter();
+    println!("{:?}", y);
+
+    let y: i32 = vec![1, 2, 3, 4, 5, 6, 7, 8, 9]
+    .iter()
+    .filter(|x| *x % 2 != 0)
+    .map(|i| i * i)
+    .filter(|x| *x < 30)
+    .sum();
+    println!("Result: {:?}", y);
+
+    //Итераторы:
+    //map - генератор
+    //fold - агрегатор
+    //collect - агрегатор
+    //filter - потребитель
 }
