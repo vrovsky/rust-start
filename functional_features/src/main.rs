@@ -39,4 +39,16 @@ fn main() {
     let x = vec![10, 20, 30];
     let z = |y| x.iter().fold(y, |x1, x2| x1 * x2);
     println!("Result: {:?} {:?}", x, z(3));
+
+    //Функции как тип
+    struct MyType<F>
+    where   F: FnOnce(i32) -> i32,
+    {
+        x: F,
+        y: i32,
+    }
+    let t = MyType { x: f3, y: 32};//f3 - функция
+    println!("result: {:?}", (t.x)(t.y));
+
+    
 }
