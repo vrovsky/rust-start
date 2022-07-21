@@ -6,10 +6,10 @@ mod tests{
         assert_ne!(2 + 2, 3);
     }
 
-    // #[test]
-    // fn my_another_test(){
-    //     assert_eq!(2 + 2, 3);
-    // }
+    #[test]
+    fn my_another_test(){
+        assert_eq!(2 + 2, 3);
+    }
 }
 fn main(){
     struct Rectangle{
@@ -32,4 +32,34 @@ fn main(){
             assert_eq!(rect1.area(), 6);
         }
     }
+
+    pub fn fibonacci(n: i32) -> u64 {
+        if n < 0 {
+            panic!("{} is negative", n);
+        }else if n == 0 {
+            panic!("zero is not a right argument to fibonacci()!");
+        }else if n == 1 {
+            return 1;
+        }
+
+        let mut sum = 0;
+        let mut last = 0;
+        let mut curr = 1;
+        for _i in 1..n{
+            sum = last + curr;
+            last = curr;
+            curr = sum;
+        }
+        sum
+    }
+
+    #[cfg(test)]
+        mod tests {
+
+            #[test]
+            fn test_fibonacci(){
+                let number5 = super::fibonacci(6);
+                assert_eq!(number5, 8);
+            }
+        }
 }
